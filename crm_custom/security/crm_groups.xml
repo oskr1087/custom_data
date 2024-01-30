@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.module.category" id="module_category_crm_login_data">
+        <field name="name">CRM Personalizado</field>
+        <field name="description">CRM Personalizado</field>
+        <field name="sequence">100</field>
+    </record>
+
+    <record id="group_crm_login_user" model="res.groups">
+        <field name="name">CRM Login User</field>
+        <field name="category_id" ref="module_category_crm_login_data"/>
+    </record>
+
+    <record id="group_crm_login_manager" model="res.groups">
+        <field name="name">CRM Login Manager</field>
+        <field name="implied_ids" eval="[(4, ref('crm_custom.group_crm_login_user'))]"/>
+        <field name="category_id" ref="module_category_crm_login_data" />
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,94 @@
+<odoo>
+  <data>
+
+    <menuitem groups="crm_custom.group_crm_login_user" 
+              id="menu_main_crm_custom"
+              name="CRM Custom"
+              sequence="10"
+    />
+
+    <record model="ir.ui.view" id="view_crm_custom_tree">
+      <field name="name">Vista Lista CRM</field>
+      <field name="model">crm.login.data</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="date"/>
+          <field name="date_to"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+  
+    <record id="view_crm_login_data_form" model="ir.ui.view">
+        <field name="name">Vista Formulario CRM Personalizado</field>
+        <field name="model">crm.login.data</field>
+        <field name="arch" type="xml">
+            <form string="CRM Personalizado">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="action_crm_login_data">
+      <field name="name">Registro de Llamadas</field>
+      <field name="res_model">crm.login.data</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+    <menuitem name="Registro de Llamadas" id="menu_crm_login_data" parent="crm_custom.menu_main_crm_custom"
+              action="crm_custom.action_crm_login_data"/>
+<!--
+    <record model="ir.actions.server" id="crm_custom.action_server">
+      <field name="name">crm_custom server</field>
+      <field name="model_id" ref="model_crm_custom_crm_custom"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="crm_custom" id="crm_custom.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="crm_custom.menu_1" parent="crm_custom.menu_root"/>
+    <menuitem name="Menu 2" id="crm_custom.menu_2" parent="crm_custom.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="crm_custom.menu_1_list" parent="crm_custom.menu_1"
+              action="crm_custom.action_window"/>
+    <menuitem name="Server to list" id="crm_custom" parent="crm_custom.menu_2"
+              action="crm_custom.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+crm_custom.access_crm_login_data,access_crm_login_data,crm_custom.model_crm_login_data,crm_custom.group_crm_login_user,1,1,1,0
+crm_custom.access_crm_login_data_admin,access_crm_login_data_admin,crm_custom.model_crm_login_data,crm_custom.group_crm_login_manager,1,1,1,1
