@@ -28,29 +28,29 @@ class ResPartnerRelativeDetails(models.Model):
     _name = 'res.partner.relative.details'
     #Campos
     relative = fields.Many2one('res.partner', string = 'Familiar', required = True)
-    kinship = fields.Many2one('res.partner.relatives', string = 'Parentesco', required = True)    
-    partner_id = fields.Many2one('res.partner', string = 'Contacto')
+    kinship = fields.Many2one('res.partner.relative', string = 'Parentesco', required = True)    
+    res_partner_id = fields.Many2one('res.partner', string = 'Contacto')
 
-class ResPartnerMailDetails(models.Model):
-    _name = 'res.partner.mail.details'
+class ResPartneremailDetails(models.Model):
+    _name = 'res.partner.email.details'
     #Campos
-    mail = fields.Char(string = 'Correo Electrónico', required = True)
-    partner_id = fields.Many2one('res.partner',string = 'Contacto')
+    email = fields.Char(string = 'Correo Electrónico', required = True)
+    res_partner_id = fields.Many2one('res.partner',string = 'Contacto')
 
 class ResPartnerPhoneDetails(models.Model):
     _name = 'res.partner.phone.details'
     #Campos
-    name = fields.Char(string = 'Teléfono', required = True)
-    partner_id = fields.Many2one('res.partner',string = 'Contacto')   
+    phone = fields.Char(string = 'Teléfono', required = True)
+    res_partner_id = fields.Many2one('res.partner',string = 'Contacto')   
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'    
     #Campos con Dependencia
-    partner_email_id = fields.One2many('res.partner.email.details', 'partner_id', string = 'Detalle de Correos Electrónicos Adicionales')
-    partner_phone_id = fields.One2many('res.partner.phone.details', 'partner_id', string = 'Detalle de Teléfonos Adicionales')
-    partner_relative_id = fields.One2many('res.partner.relative.details', 'partner_id', string = 'Detalle de Familiares')
-    comm_channel = fields.One2many('res.partner.comm.channel', 'project', string = 'Canal de Comunicación')
-    project = fields.One2many('res.partner.project', 'project', string = 'Proyecto')
+    res_partner_email_id = fields.One2many('res.partner.email.details', 'res_partner_id', string = 'Detalle de Correos Electrónicos Adicionales')
+    res_partner_phone_id = fields.One2many('res.partner.phone.details', 'res_partner_id', string = 'Detalle de Teléfonos Adicionales')
+    res_partner_relative_id = fields.One2many('res.partner.relative.details', 'res_partner_id', string = 'Detalle de Familiares')
+    comm_channel = fields.One2many('res.partner.comm.channel', 'name', string = 'Canal de Comunicación')
+    project = fields.One2many('res.partner.project', 'name', string = 'Proyecto')
     currency_id = fields.Many2one('res.currency', default=lambda self: self.env.company.currency_id, readonly = True)
     #Campos
     budget = fields.Monetary(string = 'Presupuesto', currency_id = currency_id)

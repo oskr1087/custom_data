@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_res_partner_extend_project">
+        <field name="name">Proyecto</field>
+        <field name="model">res.partner.project</field>
+        <field name="arch" type="xml">
+        <tree editable="bottom">
+            <field name="name"/>
+            <field name="shortcut"/>
+        </tree>
+        </field>
+    </record>
+  </data>
+</odoo>

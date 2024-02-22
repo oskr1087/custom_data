@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_res_partner_extend_comm_channel">
+        <field name="name">Canal de Comunicación</field>
+        <field name="model">res.partner.comm.channel</field>
+        <field name="arch" type="xml">
+        <tree editable="bottom">
+            <field name="name"/>
+            <field name="shortcut"/>
+        </tree>
+        </field>
+    </record>
+  </data>
+</odoo>

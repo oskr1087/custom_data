@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_res_partner_extend_relative">
+        <field name="name">Parentesco</field>
+        <field name="model">res.partner.relative</field>
+        <field name="arch" type="xml">
+        <tree editable="bottom">
+            <field name="name"/>
+            <field name="shortcut"/>
+        </tree>
+        </field>
+    </record>
+  </data>
+</odoo>

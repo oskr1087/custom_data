@@ -2,10 +2,10 @@
 {
     'name': "res_partner_extend",
 
-    'summary': "Campos Adicionales en Contactos.",
+    'summary': "Campos y Menús Adicionales en Contactos.",
 
     'description': """
-Campos Adicionales en Contactos.
+Campos y Menús Adicionales en Contactos.
     """,
 
     'author': "Erick Escobar",
@@ -19,6 +19,9 @@ Campos Adicionales en Contactos.
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
+        'views/relative.xml',
+        'views/comm_channel.xml',
+        'views/project.xml'                   
     ]
 }
 

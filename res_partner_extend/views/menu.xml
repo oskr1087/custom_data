@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>  
+    <menuitem id="menu_partner_title_contact_2"
+        action="base.action_partner_title_contact"
+        name="Parentesco" parent="res_partner_menu_config"
+        sequence="3"/>
+</odoo>
