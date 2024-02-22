@@ -12,7 +12,7 @@ Campos y Menús Adicionales en Contactos.
     'website': "",
 
     'category': 'CRM',
-    'version': '0.1',
+    'version': '0.2',
 
     'depends': ['contacts'],
 
