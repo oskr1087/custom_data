@@ -16,6 +16,9 @@
           <field name="date"/>
           <field name="date_to"/>
           <field name="description"/>
+          <field name="tamano"/>
+          <field name="flag" optional="hide"/>
+          <field name="lead_id" optional="show"/>
         </tree>
       </field>
     </record>
@@ -30,10 +33,13 @@
                         <group>
                             <field name="name"/>
                             <field name="description"/>
+                            <field name="tamano" widget="monetary"/>
+                            <field name="lead_id" domain="[('user_id', '=', uid)]"/>
                         </group>
                         <group>
                             <field name="date"/>
                             <field name="date_to"/>
+                            <field name="flag" widget="boolean_toggle"/>
                         </group>
                     </group>
                 </sheet>
@@ -50,15 +56,50 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="action_crm_login_data">
-      <field name="name">Registro de Llamadas</field>
+      <field name="name">Llamadas</field>
       <field name="res_model">crm.login.data</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <!-- server action to the one above -->
 
-    <menuitem name="Registro de Llamadas" id="menu_crm_login_data" parent="crm_custom.menu_main_crm_custom"
+    <menuitem name="Llamadas" id="menu_crm_login_data" parent="crm_custom.menu_main_crm_custom"
               action="crm_custom.action_crm_login_data"/>
+  
+    <record id="view_crm_lead_text_inherit" model="ir.ui.view">
+          <field name="name">view_crm_lead_text_inherit_form</field>
+          <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+          <field name="model">crm.lead</field>
+          <field name="priority">200</field>
+          <field type="xml" name="arch">
+            <xpath expr="//button[@name='action_set_won_rainbowman']" position="after">
+                    <button string="Crear Cliente" name="action_create_res_partner" type="object" class="oe_highlight"/>
+            </xpath>
+            <notebook position="inside">
+              <page string="Campos Adicionales">
+                <group>
+                  <group string="Texto Iniciales">
+                      <field name="text1"/>
+                      <field name="text2"/>
+                      <field name="text3"/>
+                  </group> 
+                  <group string="Texto Finales">
+                    <field name="text4"/>
+                    <field name="text5"/>
+                    <field name="text6"/>
+                  </group>
+                  <group string="Texto">
+                    <field name="text6"/>
+                    <field name="text7"/>
+                    <field name="text8"/>
+                  </group>               
+                </group>
+              </page>
+            </notebook>
+          </field>
+    </record>
+
+
 <!--
     <record model="ir.actions.server" id="crm_custom.action_server">
       <field name="name">crm_custom server</field>
