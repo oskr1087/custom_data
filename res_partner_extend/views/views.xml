@@ -42,6 +42,7 @@
             </field>
           </page>              
         </notebook>
-      </field>          
+      </field>
+    </record>   
   </data>
 </odoo>
