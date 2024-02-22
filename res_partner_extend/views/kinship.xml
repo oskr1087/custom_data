@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_kinship">
+        <field name="name">Parentesco</field>
+        <field name="model">res.partner.master.relatives</field>
+        <field name="arch" type="xml">
+        <tree editable="bottom">
+            <field name="id"/>
+            <field name="kinship"/>
+        </tree>
+        </field>
+    </record>
+  </data>
+</odoo>

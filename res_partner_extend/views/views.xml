@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <record id="view_res_partner_extend_inherit" model="ir.ui.view">
+          <field name="name">view_res_partner_extend_inherit_form</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
+          <field name="model">res.partner</field>
+          <field name="priority">200</field>
+          <field type="xml" name="arch">
+            <field name="category_id" position="before">
+                <field name="project"/>
+            </field>
+            <field name="title" position="before">
+                <field name="budget"/>
+            </field>
+            <field name="title" position="before">
+                <field name="income"/>
+            </field>
+            <field name="category_id" position="before">
+                <field name="contact_date"/>
+            </field>     
+            <field name="category_id" position="after">
+                <field name="comm_channel"/>
+            </field>                                                                 
+            <notebook position="inside">
+              <page string="Correos Electrónicos Adicionales" name="email_details">
+                <field name="partner_email_id">
+                  <tree editable="bottom">
+                    <field name="email"/>
+                  </tree>
+                </field>
+              </page>
+              <page string="Teléfonos Adicionales" name="phone_details">
+                <field name="partner_phone_id">
+                  <tree editable="bottom">
+                    <field name="phone"/>
+                  </tree>
+                </field>
+              </page>
+              <page string="Familiares" name="relatives_details">
+                <field name="partner_relative_id">
+                  <tree editable="bottom">
+                    <field name="relative"/>
+                    <field name="kinship"/>
+                  </tree>
+                </field>
+              </page>              
+            </notebook>
+          </field>          
+    </record>
+    <record id="view_res_partner_extend_ec_inherit" model="ir.ui.view">
+      <field name="name">view_res_partner_extend_ec_inherit_form</field>
+      <field name="inherit_id" ref="l10n_ec_edi.view_partner_property_withhold_form"/>
+      <field name="model">res.partner</field>
+      <field name="priority">201</field>
+      <field type="xml" name="arch">
+        <field name="l10n_ec_related_party" position="after">
+            <field name="contact_date"/>
+        </field>     
+      </field>          
+  </record>
+  </data>
+</odoo>
